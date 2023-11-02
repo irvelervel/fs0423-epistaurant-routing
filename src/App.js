@@ -9,6 +9,9 @@ import Home from './components/Home'
 import ReservationForm from './components/ReservationForm'
 import ReservationList from './components/ReservationList'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NotFound from './components/NotFound'
+import Menu from './components/Menu'
+import Detail from './components/Detail'
 
 // che cos'è un componente React a funzione?
 // È una funzione che ritorna del JSX
@@ -37,6 +40,13 @@ function App() {
             <Route element={<Home />} path="/" />
             <Route element={<ReservationForm />} path="/booking" />
             <Route element={<ReservationList />} path="/admin" />
+            <Route element={<Menu />} path="/menu" />
+            <Route element={<Detail />} path="/detail/:pastaId" />
+            {/* questa qui sopra è una rotta PARAMETRICA, che sfrutta l'operatore : per dare un nome generico
+            a tutto quello che verrà dopo /detail/ */}
+
+            {/* la rotta con path "*" cattura tutti i match non dichiarati nelle rotte precedenti */}
+            <Route element={<NotFound />} path="*" />
           </Routes>
         </div>
         <footer className="text-center">
